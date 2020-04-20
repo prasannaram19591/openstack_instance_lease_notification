@@ -27,7 +27,7 @@ if os.path.isfile('logmailbody.csv'):
     os.remove("logmailbody.csv")
 
 #Collecting metadata for servers..
-with open('opsk_srv.csv', 'rb') as f:
+with open('serverlist.csv', 'rb') as f:
     for line in f:
         if 'Retirement' in line:
             ret_dt_val = line.index("Retirement Date")
@@ -54,9 +54,9 @@ with open('opsk_srv.csv', 'rb') as f:
                                 print("An exception occurred")
 
 #Setting mail addresses..
-sender = 'EV_DEVIT@infosys.com'
-ccmail = "ramanathan.s02@edgeverve.com"
-openstack_admin = "ramanathan.s02@edgeverve.com"
+sender = 'sender@abc.com'
+ccmail = "ccmail@abc.com"
+openstack_admin = "admin@abc.com"
 
 mail_own_tmp1 = str(openstack_admin.split('@')[0])
 mail_own_tmp2 = str(mail_own_tmp1.split('.')[0])
@@ -68,9 +68,9 @@ today = date.today()
 now = str(today)
 
 #Setting 3 level notification days..
-remainder1_days = 70
-remainder2_days = 343
-remainder3_days = 284
+remainder1_days = 45
+remainder2_days = 30
+remainder3_days = 15
 rem1 = str(remainder1_days)
 rem2 = str(remainder2_days)
 rem3 = str(remainder3_days)
@@ -164,7 +164,7 @@ EV_DEVIT.""".format(mail_own, instance_name, instance_ip, days)
             part1 = MIMEText(BODY_TEXT, 'plain')
             msg.attach(part1)
             try:
-                smtpObj = smtplib.SMTP('172.21.5.10')
+                smtpObj = smtplib.SMTP('10.x.x.x')
                 smtpObj.sendmail(sender, ccmail, msg.as_string())
                 print("Successfully sent email")
             except SMTPException:
@@ -198,7 +198,7 @@ EV_DEVIT.""".format(mail_own, instance_name, instance_ip, days)
             part1 = MIMEText(BODY_TEXT, 'plain')
             msg.attach(part1)
             try:
-                smtpObj = smtplib.SMTP('172.21.5.10')
+                smtpObj = smtplib.SMTP('10.x.x.x')
                 smtpObj.sendmail(sender, ccmail, msg.as_string())
                 print("Successfully sent email")
             except SMTPException:
@@ -232,7 +232,7 @@ EV_DEVIT.""".format(mail_own, instance_name, instance_ip, days)
             part1 = MIMEText(BODY_TEXT, 'plain')
             msg.attach(part1)
             try:
-                smtpObj = smtplib.SMTP('172.21.5.10')
+                smtpObj = smtplib.SMTP('10.x.x.x')
                 smtpObj.sendmail(sender, ccmail, msg.as_string())
                 print("Successfully sent email")
             except SMTPException:
@@ -285,7 +285,7 @@ if os.path.isfile('delete_list.csv'):
         msg['To'] = openstack_admin
         msg['cc'] = ccmail
         try:
-            s = smtplib.SMTP('172.21.5.10')
+            s = smtplib.SMTP('10.x.x.x')
             s.sendmail(sender, ccmail, msg.as_string())
             s.quit()
             print("Successfully sent email")
@@ -340,7 +340,7 @@ if os.path.isfile('instance_notification_log.csv'):
         msg['To'] = openstack_admin
         msg['cc'] = ccmail
         try:
-            s = smtplib.SMTP('172.21.5.10')
+            s = smtplib.SMTP('10.x.x.x')
             s.sendmail(sender, ccmail, msg.as_string())
             s.quit()
             print("Successfully sent email")
