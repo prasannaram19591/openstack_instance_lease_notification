@@ -2,7 +2,7 @@
 
 Openstack admins,
 
-  Whats your idea about openstack instances life cycle management? Without the native functionality to notify VM owners about their owned vms lease expiry, its quite difficult to track the vm least expiry whereas the VMware VRA orchestration comes in handy to manage vm life cycle. Here is a python code to notify instance owners about their vm expiry and helps in effective life cycle management across all openstack projects. The code will send 3 notifications to the VM owners informing about their vm expiry dates and mails a list of instances to the openstack administrator so that the instances can be purged. It also mails the notification logs which are sent to users on a daily basis.
+  Whats your idea about openstack instances life cycle management? Without the native functionality to notify VM owners about their owned vms lease expiry, its quite difficult to track the vm least expiry whereas the VMware VRA orchestration comes in handy to manage vm life cycle. Here is a python code to notify instance owners about their vm expiry and helps in effective life cycle management across all openstack projects. The code will send 3 notifications to the VM owners informing about their vm expiry dates and mails a list of expired instances to the openstack administrator so that the instances can be purged. It also mails the notification logs which are sent to users on a daily basis.
   
   Pre-requisites:
   1.  Running openstack cluster with version Rocky or above.
